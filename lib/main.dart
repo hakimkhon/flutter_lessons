@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lessons_cody/screens/lesson10/home_work10.dart';
 import 'package:lessons_cody/screens/lesson10/lesson10.dart';
 import 'package:lessons_cody/screens/lesson10/widgets/telegram_info_page.dart';
+import 'package:lessons_cody/screens/lesson11/page_1.dart';
 import 'package:lessons_cody/screens/lesson9/home_work1.dart';
 import 'package:lessons_cody/screens/lesson9/home_work3.dart';
 
@@ -19,10 +20,15 @@ class MyApp extends StatelessWidget {
       title: 'Code Lessons',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Colors.red,
+        // primaryColorDark: Colors.black,
+        // primaryColor: Colors.red,
+        colorScheme: const ColorScheme.light(
+          // primaryContainer: Colors.amber,
+          primary: Colors.blue,
+        ),
         useMaterial3: true,
       ),
-      home: TelegramInfoPage(),
+      home: Page1(),
     );
   }
 }

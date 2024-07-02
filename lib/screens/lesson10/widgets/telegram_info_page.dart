@@ -32,6 +32,7 @@ class TelegramInfoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: const Text("Telegram app"),),
       body: SafeArea(
         child: Column(
           children: [
