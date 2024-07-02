@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lessons_cody/screens/lesson11/page_1.dart';
+import 'package:lessons_cody/screens/lesson11/widgets/page_1.dart';
 
 class Page3 extends StatelessWidget {
   const Page3({super.key});
