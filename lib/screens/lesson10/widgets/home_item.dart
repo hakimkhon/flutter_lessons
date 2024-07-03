@@ -7,9 +7,9 @@ class HomeItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.16-4,
-      height: 80,
-      margin: const EdgeInsets.all(2),
+      width: MediaQuery.of(context).size.width * 0.3333,
+      height: MediaQuery.of(context).size.height * 0.146,
+      // margin: const EdgeInsets.all(1),
       color: color,
     );
   }

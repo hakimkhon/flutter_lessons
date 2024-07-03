@@ -1,11 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lessons_cody/screens/lesson10/home_work10.dart';
-import 'package:lessons_cody/screens/lesson10/lesson10.dart';
-import 'package:lessons_cody/screens/lesson10/widgets/telegram_info_page.dart';
-import 'package:lessons_cody/screens/lesson11/widgets/page_1.dart';
-import 'package:lessons_cody/screens/lesson9/home_work1.dart';
-import 'package:lessons_cody/screens/lesson9/home_work3.dart';
-
+import 'package:lessons_cody/screens/lesson11/home_work11.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -22,13 +16,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         // primaryColorDark: Colors.black,
         // primaryColor: Colors.red,
-        colorScheme: const ColorScheme.light(
-          // primaryContainer: Colors.amber,
-          primary: Colors.blue,
-        ),
+        // colorScheme: const ColorScheme.light(
+        //   // primaryContainer: Colors.amber,
+        //   primary: Colors.blue,
+        primarySwatch: Colors.blue,
         useMaterial3: true,
       ),
-      home: Page1(),
+      home: const HomeWork11(),
     );
   }
 }

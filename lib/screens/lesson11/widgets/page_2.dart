@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lessons_cody/screens/lesson11/widgets/page_1.dart';
 import 'package:lessons_cody/screens/lesson11/widgets/page_3.dart';
 
 class Page2 extends StatelessWidget {
@@ -8,7 +9,37 @@ class Page2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Page №2"),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Center(
+              child: Text("Page №2"),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                IconButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const Page1()),
+                    );
+                  },
+                  icon: const Icon(Icons.home_sharp),
+                ),
+                IconButton(
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => const Page1()),
+                    );
+                  },
+                  icon: const Icon(Icons.exit_to_app),
+                ),
+              ],
+            )
+          ],
+        ),
         titleTextStyle: const TextStyle(
           fontSize: 32,
           color: Colors.black,
@@ -18,14 +49,14 @@ class Page2 extends StatelessWidget {
       ),
       body: Center(
         child: ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const Page3()),
-              );
-            },
-            child: const Text("to Page №3"),
-          ),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const Page3()),
+            );
+          },
+          child: const Text("to Page №3"),
+        ),
       ),
     );
   }
