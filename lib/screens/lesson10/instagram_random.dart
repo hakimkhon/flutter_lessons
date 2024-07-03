@@ -232,7 +232,6 @@ class InstagramRandom extends StatelessWidget {
                     image: DecorationImage(
                       image: NetworkImage(
                           'https://randomuser.me/api/portraits/med/women/${rndm()}.jpg'),
-                      ,
                     ),
                   ),
                 ),
