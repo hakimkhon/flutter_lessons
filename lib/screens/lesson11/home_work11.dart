@@ -161,7 +161,7 @@ class HomeWork11 extends StatelessWidget {
             width: double.infinity,
             height: 400,
             child: Image.asset(
-              "assets/images/Rectangle.png",
+              "assets/images/flower.jpg",
               fit: BoxFit.cover,
             ),
           )
