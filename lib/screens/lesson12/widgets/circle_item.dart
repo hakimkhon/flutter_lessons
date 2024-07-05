@@ -16,7 +16,7 @@ class CircleItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return CircleAvatar(
       radius: radius,
-      backgroundColor: color,
+      backgroundColor: color.withOpacity(0.6),
       child: Text(
         text,
         style: TextStyle(color: Colors.white, fontSize: textSiza),
