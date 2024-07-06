@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:zoom_tap_animation/zoom_tap_animation.dart';
+import 'package:lessons_cody/screens/lesson12/homework/home_page.dart';
 
 class AboutCar extends StatelessWidget {
+  // ignore: non_constant_identifier_names
   const AboutCar({super.key, this.car_name = "bmw", this.car_price = 10000});
+  // ignore: non_constant_identifier_names
   final String car_name;
+  // ignore: non_constant_identifier_names
   final int car_price;
-  final String loren = """"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga""";
+  final String loren =
+      """"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga""";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,14 +59,23 @@ class AboutCar extends StatelessWidget {
                     ),
                   ),
                   Center(
-                    child: ElevatedButton(
-                    onPressed: () {},
-                    child: const Text(
-                      "Delete Car",
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    child: ZoomTapAnimation(
+                      onTap: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const HomeTask(),
+                          ));
+                        // setState(() {});
+                        // HomeTask 
+                      },
+                      child: const Icon(
+                        Icons.delete,
+                        size: 50,
+                        color: Colors.red,
+                      ),
                     ),
-                                    ),
-                  ),
+                  )
                 ],
               ),
             ),

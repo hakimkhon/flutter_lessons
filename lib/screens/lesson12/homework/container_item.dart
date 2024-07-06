@@ -4,7 +4,9 @@ import 'package:lessons_cody/screens/lesson12/homework/about_car.dart';
 // import 'package:lessons_cody/resource/resource.dart';
 
 class ContainerItem extends StatelessWidget {
+  // ignore: non_constant_identifier_names
   const ContainerItem({super.key, required this.price, required this.car_name});
+  // ignore: non_constant_identifier_names
   final String car_name;
   final int price;
 
@@ -23,6 +25,7 @@ class ContainerItem extends StatelessWidget {
       },
       child: Container(
         width: double.infinity,
+        height: 250,
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -49,7 +52,7 @@ class ContainerItem extends StatelessWidget {
                   );
                 },
                 child: const Text(
-                  "Batafsil",
+                  "more...",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
