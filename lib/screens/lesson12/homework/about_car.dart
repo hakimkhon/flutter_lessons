@@ -1,23 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:lessons_cody/mock/mock_data.dart';
+import 'package:lessons_cody/models/car_model.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 import 'package:lessons_cody/screens/lesson12/homework/home_page.dart';
 
 class AboutCar extends StatelessWidget {
-  // ignore: non_constant_identifier_names
-  const AboutCar({super.key, this.car_name = "bmw", this.car_price = 10000});
-  // ignore: non_constant_identifier_names
-  final String car_name;
-  // ignore: non_constant_identifier_names
-  final int car_price;
-  final String loren =
-      """"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga""";
+  const AboutCar({super.key, required this.carModel});
+  final CarModel carModel;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          car_name.toUpperCase(),
+          carModel.name.toUpperCase(),
           style: const TextStyle(
             color: Colors.blue,
             fontSize: 24,
@@ -31,7 +28,7 @@ class AboutCar extends StatelessWidget {
             flex: 3,
             child: Image(
               width: double.infinity,
-              image: AssetImage('assets/images/$car_name.jpg'),
+              image: AssetImage('assets/images/${carModel.image}.jpg'),
               fit: BoxFit.fill,
             ),
           ),
@@ -44,7 +41,7 @@ class AboutCar extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text(
-                    "Price: $car_price USD",
+                    "Price: ${carModel.price} ${carModel.currency}",
                     style: const TextStyle(
                       color: Colors.black,
                       fontSize: 24,
@@ -52,7 +49,15 @@ class AboutCar extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "About: $loren",
+                    "Fuel Consumption: ${carModel.fuelConsumption}",
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 22,
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                  Text(
+                    "About: ${carModel.subText}",
                     style: const TextStyle(
                       color: Colors.black45,
                       fontSize: 20,
@@ -61,13 +66,14 @@ class AboutCar extends StatelessWidget {
                   Center(
                     child: ZoomTapAnimation(
                       onTap: () {
-                        Navigator.pushReplacement(
+                        MockData.cars.removeWhere((item) => carModel == item);
+                        Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const HomeTask(),
-                          ));
-                        // setState(() {});
-                        // HomeTask 
+                            builder: (context) => const HomePage(),
+                          ),
+                          (route) => false,
+                        );
                       },
                       child: const Icon(
                         Icons.delete,

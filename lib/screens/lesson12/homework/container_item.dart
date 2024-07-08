@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:lessons_cody/models/car_model.dart';
 import 'package:lessons_cody/screens/lesson12/homework/about_car.dart';
-// import 'package:zoom_tap_animation/zoom_tap_animation.dart';
-// import 'package:lessons_cody/resource/resource.dart';
 
 class ContainerItem extends StatelessWidget {
-  // ignore: non_constant_identifier_names
-  const ContainerItem({super.key, required this.price, required this.car_name});
-  // ignore: non_constant_identifier_names
-  final String car_name;
-  final int price;
+  const ContainerItem({super.key, required this.carModel});
+  final CarModel carModel;
 
   @override
   Widget build(BuildContext context) {
@@ -17,10 +13,7 @@ class ContainerItem extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-              builder: (context) => AboutCar(
-                    car_name: car_name,
-                    car_price: price,
-                  )),
+              builder: (context) => AboutCar(carModel: carModel)),
         );
       },
       child: Container(
@@ -29,7 +22,7 @@ class ContainerItem extends StatelessWidget {
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/images/$car_name.jpg"),
+            image: AssetImage("assets/images/${carModel.image}.jpg"),
             fit: BoxFit.cover,
           ),
         ),
@@ -45,10 +38,7 @@ class ContainerItem extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => AboutCar(
-                              car_name: car_name,
-                              car_price: price,
-                            )),
+                        builder: (context) => AboutCar(carModel: carModel)),
                   );
                 },
                 child: const Text(
@@ -58,7 +48,7 @@ class ContainerItem extends StatelessWidget {
               ),
             ),
             Text(
-              "$price USD",
+              "${carModel.price} ${carModel.currency}",
               style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,

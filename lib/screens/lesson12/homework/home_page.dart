@@ -1,45 +1,57 @@
 import 'package:flutter/material.dart';
+import 'package:lessons_cody/mock/mock_data.dart';
+import 'package:lessons_cody/screens/lesson12/homework/add_item.dart';
 import 'package:lessons_cody/screens/lesson12/homework/container_item.dart';
+import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 
-class HomeTask extends StatefulWidget {
-  // ignore: non_constant_identifier_names
-  const HomeTask({super.key, this.delete_car = ""});
-  // ignore: non_constant_identifier_names
-  final String delete_car;
-
-  @override
-  State<HomeTask> createState() => _HomeTaskState();
-}
-
-class _HomeTaskState extends State<HomeTask> {
-  final List _cars = [
-    "bmw",
-    "mercedes-benz",
-    "volkswagen",
-    "volvo",
-    "ford",
-    "bwd",
-  ];
-  // ignore: unused_field
-  final List _price = [
-    12300,
-    14520,
-    15050,
-    17010,
-    10500,
-    13100,
-  ];
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: Colors.blue[100],
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            const Text(
+              "Cars of World",
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => AddItem()),
+                  );
+                
+              },
+              child: const Icon(
+                Icons.add_circle_rounded,
+                size: 40,
+                color: Color.fromARGB(255, 31, 1, 36),
+              ),
+            ),
+          ],
+        ),
+      ),
       body: SafeArea(
-          child: ListView.builder(
-        itemCount: _cars.length,
-        itemBuilder: (context, index) {
-          return ContainerItem(price: _price[index], car_name: _cars[index]);
-        },
-      )),
+        bottom: false,
+        child: ListView.builder(
+          itemCount: MockData.cars.length,
+          itemBuilder: (context, index) {
+            return ContainerItem(
+              carModel: MockData.cars[index],
+            );
+          },
+        ),
+      ),
     );
   }
 }
