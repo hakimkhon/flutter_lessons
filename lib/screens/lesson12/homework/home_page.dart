@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lessons_cody/mock/mock_data.dart';
 import 'package:lessons_cody/screens/lesson12/homework/add_item.dart';
 import 'package:lessons_cody/screens/lesson12/homework/container_item.dart';
-import 'package:zoom_tap_animation/zoom_tap_animation.dart';
+// import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -28,7 +28,7 @@ class HomePage extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => AddItem()),
+                        builder: (context) => const AddItem()),
                   );
                 
               },
